@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+  <div class="catalog">
+    <div class = 'flash'>
+    	{% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+          {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+    </div>
+
+    <section class="item-display">
+      <h2>{{item.title}}</h2>
+      <p>
+        <span class="item-display-description-title">Description:</span>
+        <span class="item-display-description">{{item.description}}</span>
+      </p>
+      <nav>
+        <a class="link2 form-link" href="{{url_for('editCategoryItem', category_id = category_id, item_id = item_id)}}">Edit</a>
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        <a class="link2 form-link" href="{{url_for('deleteCategoryItem', category_id = category_id, item_id = item_id)}}">Delete</a>
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        <a class="link2 form-link" href="{{url_for('showCatalog')}}">Back to Catalog</a>
+      </nav>
+
+    </section>
+  </div>
+{% endblock %}

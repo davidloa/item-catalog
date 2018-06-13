@@ -1,0 +1,10 @@
+<header>
+  <div class="top-menu">
+    <h1><a class="link1" href="{{url_for('showCatalog')}}">Catalog App</a></h1>
+    {% if 'username' not in session %}
+    <div class="login-link"><a class="link3" href="{{url_for('showLogin')}}">Login</a></div>
+    {% else %}
+    <div class="login-link"><a class="link3" href="{{url_for('gdisconnect')}}">Logout</a></div>
+    {% endif %}
+  </div>
+</header>

@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+  <div class="catalog">
+    <section class="new-item">
+      <h2>Delete Item</h2>
+      <form class="delete-item-form" action="{{deleteCategoryItem}}" method="post">
+        <div class="form-group">
+          <p class="form-name">Category: </p>
+          <p>{{category.name}}</p>
+        </div>
+
+        <div class="form-group">
+          <p class="form-name">Item name: </p>
+          <p>{{item.title}}</p>
+        </div>
+
+        <div class="form-group">
+          <p class="form-name">Item Description: </p>
+          <p>{{item.description}}</p>
+        </div>
+
+        <div class="form-group">
+          <p>Are you sure you want to delete this item? </p>
+        </div>
+
+        <div class="form-group">
+          <input class="form-button" type="submit" name="submit" value="Delete">
+          <a class="link2 form-link" href="{{url_for('itemDisplay', category_id = item.category_id, item_id = item.id)}}">Cancel</a>
+        </div>
+
+      </form>
+    </section>
+  </div>
+{% endblock %}
